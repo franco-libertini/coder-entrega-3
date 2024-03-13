@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blacklibrary.com</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/icono.ico' %}" />
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="contenedor-header">
+            <a href="{% url 'home' %}">
+                <h1>blacklibrary</h1>
+            </a>
+            <nav class="navegacion">
+                <a class="btn" href="{% url 'buscar' %}">Buscar</a>
+                <a class="btn" href="{% url 'autores' %}">Autores</a>
+                <a class="btn" href="{% url 'categorias' %}">Categorias</a>
+                <a class="btn" href="{% url 'libros' %}">Libros</a>
+                <a class="btn" href="{% url 'clientes' %}">Clientes</a>
+                <a class="btn" href="{% url 'pedidos' %}">Pedidos</a>
+            </nav>
+        </div>
+    </header>
+    
+    {% block contenido %}
+    <main>
+        <div class="hero"></div>
+        <div class="slider">
+            <div class="slides">
+              <div id="slide-1" >
+                <img src="..\static\assets\img\BLPROCESSED-Ghost-Warrior-cover.jpg" alt="My Image">
+              </div>
+              <div id="slide-2">
+                <img src="..\static\assets\img\BLPROCESSED-GS-Crusade_Cover.jpg" alt="My Image">
+              </div>
+              <div id="slide-3">
+                <img src="..\static\assets\img\BLPROCESSED-Nexus-Cover.jpg" alt="My Image">
+              </div>
+              <div id="slide-4">
+                <img src="..\static\assets\img\BLPROCESSED-The-Devastation-of-Baal-Cover.jpg" alt="My Image">
+              </div>
+              <div id="slide-5">
+                <img src="..\static\assets\img\BLPROCESSED-The-Hammer-and-the-Eagle-Cover.jpg" alt="My Image">
+              </div>
+            </div>
+        </div>
+    </main>
+    {% endblock contenido%}
+
+    <footer>
+        <div class="contenedor-footer">
+            <h3 class="copyright">Black Library is a division of Games Workshop. Useful Information. To contact us either send an email to contact@blacklibrary.com or call +44 (0) 115 9004069.</h3>
+        </div>
+    </footer>
+
+
+</body>
+</html>

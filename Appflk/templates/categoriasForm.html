@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+
+{% block contenido %}
+<main class="contenedor">
+    <div class="contenedor-retornar">
+        <a href="{% url 'categorias' %}" class="btn">
+            <i class="fa-solid fa-left-long"></i>
+        </a>
+    </div>
+    <form action="{% url 'categoria_form' %}" method="post" class="formulario">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Registra Categoria</legend>
+
+            <div class="campo">
+                <label for="categoria">Categoria: </label>
+                <input id="categoria" type="text" placeholder="Nombre de la Categoria" name="nombre" required/>
+            </div>
+            
+        </fieldset>
+
+        <input class="btn"type="submit" value="Registrar"/>
+    </form>
+</main>
+{% endblock contenido %}

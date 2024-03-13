@@ -1,0 +1,383 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /*Con esto 1rem = 10 px*/
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* Variables */
+
+:root {
+    --plomo: #333333;
+    --plomo_btn: #515151;
+    --fuentePrincipal: 'Roboto', sans-serif;
+    --fuenteSecundaria: 'Lato', sans-serif;
+    --separacion: 5rem;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url("../fonts/Lato-Black.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url("../fonts/Lato-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url("../fonts/Roboto-Black.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url("../fonts/Roboto-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    font-family: var(--fuentePrincipal);
+    font-size: 1.6rem;
+    line-height: 1.5;
+    height: 100%; /* desde el height hasta el flex:1 son para el pie de pagina */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+/* Global */
+
+.contenedor {
+    max-width: 120rem;
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+}
+
+h1, h2, h3 {
+    font-weight: 900;
+    font-family: var(--fuenteSecundaria);
+    margin: calc(var(--separacion) / 2) 0;
+}
+
+h1 {
+    font-size: 4rem;
+    color: white;
+    margin: 1rem 0;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/** Utilidades **/
+
+.text-center {
+    text-align: center;
+}
+
+/** Index **/
+
+.contenedor-header {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    column-gap: 3rem;
+    padding: 0 calc(var(--separacion)*1.5);
+    background-color: #333333;
+    margin: 0 auto;
+}
+
+.navegacion {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.hero {
+    background-image: url(../assets/img/BL_Page_-_Black-Library__1_.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 55rem;
+}
+
+.btn {
+    background-color: var(--plomo);
+    display: block;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    border: none;
+    transition: background-color .3s ease-out;
+    cursor: pointer;
+    width: auto;
+    border-radius: 1rem;
+}
+
+.btn:hover {
+    background-color: var(--plomo_btn);
+}
+
+.contenedor-footer {
+    background-color: var(--plomo);
+    height: 10rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.copyright {
+    color: white;
+}
+
+/** Formularios **/
+
+.formulario {
+    max-width: 60rem;
+    margin: 0 auto;
+}
+
+.formulario fieldset {
+    border: .1rem solid var(--plomo);
+    margin-bottom: 2rem;
+}
+
+.formulario legend {
+    background-color: var(--plomo);
+    width: 100%;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: .7rem;
+    margin-bottom: 2.5rem;
+}
+
+.formulario-buscar {
+    margin-top: 5rem;
+}
+
+.formulario-buscar:last-child {
+    margin-bottom: 5rem;
+}
+
+.campo {
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.campo label {
+    flex-basis: 10rem;
+}
+
+.campo input,
+.campo textarea,
+.campo select {
+    flex: 1;
+    border: 1px solid var(--plomo);
+    padding: 1rem;
+}
+
+#disponible {
+    max-width: 2rem;
+}
+
+#stock,
+#precio,
+#cantidad {
+    max-width: 12rem;
+}
+
+/** Tablas **/
+
+table {
+    margin: 0 auto;
+    max-width: 50 rem;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+thead {
+    background-color: var(--plomo);
+    color: white;
+}
+
+
+th, td {
+    padding: 1rem;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:last-child {
+    border-bottom: 2px solid #f2f2f2;
+}
+
+tr:hover {
+    background-color: var(--plomo_btn);
+    color: white;
+    cursor: default;
+}
+
+th {
+    height: 5rem;
+}
+
+.titulo-tabla {
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: 3fr 1fr;
+    max-width: 25rem;
+    align-items: center;
+    justify-items: center;
+}
+
+.titulo-tabla a {
+    max-width: 6rem;
+}
+
+.contenedor-retornar {
+    margin: 5rem auto;
+    max-width: 60rem;
+}
+
+.contenedor-retornar .btn {
+    max-width: 6rem;
+}
+* {
+    box-sizing: border-box;
+  }
+  
+  .slider {
+    width: 300px;
+    text-align: center;
+    overflow: hidden;
+  }
+  
+  .slides {
+    display: flex;
+    
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    
+    
+    
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    
+    /*
+    scroll-snap-points-x: repeat(300px);
+    scroll-snap-type: mandatory;
+    */
+  }
+  .slides::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  .slides::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 10px;
+  }
+  .slides::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .slides > div {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    width: 300px;
+    height: 300px;
+    margin-right: 50px;
+    border-radius: 10px;
+    background: #eee;
+    transform-origin: center center;
+    transform: scale(1);
+    transition: transform 0.5s;
+    position: relative;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+  }
+  .slides > div:target {
+  /*   transform: scale(0.8); */
+  }
+  .author-info {
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 0.75rem;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+  }
+  .author-info a {
+    color: white;
+  }
+  img {
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .slider > a {
+    display:flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: white;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 0 0.5rem 0;
+    position:relative;
+  }
+  .slider > a:active {
+    top: 1px;
+  }
+  .slider > a:focus {
+    background: #000;
+  }

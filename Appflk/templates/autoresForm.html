@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+
+{% block contenido %}
+<main class="contenedor">
+
+    <div class="contenedor-retornar">
+        <a href="{% url 'autores' %}" class="btn">
+            <i class="fa-solid fa-left-long"></i>
+        </a>
+    </div>
+    <form action="{% url 'autor_form' %}" method="post" class="formulario">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Registra Autor</legend>
+
+            <div class="campo">
+                <label for="nombre">Nombre: </label>
+                <input id="nombre" type="text" placeholder="Nombre del Autor" name="nombre" required/>
+            </div>
+
+            <div class="campo">
+                <label for="biografia">Biografia</label>
+                <textarea id="biografia" rows="10" cols="10" name="biografia" required></textarea>
+            </div>
+            
+        </fieldset>
+
+        <input class="btn"type="submit" value="Registrar"/>
+    </form>
+</main>
+{% endblock contenido %}

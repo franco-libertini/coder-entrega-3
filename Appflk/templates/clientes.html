@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+{% block contenido %}
+<main class="contenedor">
+
+    <div class="titulo-tabla">
+        <h2>Clientes</h2>
+        <a href="{% url 'cliente_form' %}" class="btn">
+            <i class="fa fa-lg fa-plus" ></i>
+        </a>
+    </div>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombres: </th>
+                <th>Apellidos: </th>
+                <th>Correo: </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in clientes %}
+            <tr>
+                <td>{{c.id}}</td>
+                <td>{{c.nombre}}</td>
+                <td>{{c.apellido}}</td>
+                <td>{{c.email}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+</main>
+{% endblock contenido %}

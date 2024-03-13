@@ -1,0 +1,84 @@
+{% extends 'index.html' %}
+
+{% block contenido %}
+
+<main>
+
+    <form action="{% url 'encontrar_libro' %}" method="get" class="formulario formulario-buscar">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Buscar Libro</legend>
+
+            <div class="campo">
+                <label for="buscar">Libro: </label>
+                <input id="buscar" type="text" placeholder="Escriba el titulo del libro" name="buscar" required/>
+            </div>
+            
+        </fieldset>
+
+        <input class="btn"type="submit" value="Buscar"/>
+    </form>
+
+    <form action="{% url 'encontrar_autor' %}" method="get" class="formulario formulario-buscar">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Buscar Autor</legend>
+
+            <div class="campo">
+                <label for="buscar">Autor: </label>
+                <input id="buscar" type="text" placeholder="Escriba el nombre del autor" name="buscar" required/>
+            </div>
+            
+        </fieldset>
+
+        <input class="btn"type="submit" value="Buscar"/>
+    </form>
+
+    <form action="{% url 'encontrar_categoria' %}" method="get" class="formulario formulario-buscar">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Buscar Categoria</legend>
+
+            <div class="campo">
+                <label for="buscar">Categoria: </label>
+                <input id="buscar" type="text" placeholder="Escriba el nombre de la categoria" name="buscar" required/>
+            </div>
+            
+        </fieldset>
+
+        <input class="btn"type="submit" value="Buscar"/>
+    </form>
+
+    <form action="{% url 'encontrar_cliente' %}" method="get" class="formulario formulario-buscar">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Buscar Cliente</legend>
+
+            <div class="campo">
+                <label for="buscar">Cliente: </label>
+                <input id="buscar" type="text" placeholder="Escriba el nombre del cliente" name="buscar" required/>
+            </div>
+            
+        </fieldset>
+
+        <input class="btn"type="submit" value="Buscar"/>
+    </form>
+
+    <form action="{% url 'encontrar_pedido' %}" method="get" class="formulario formulario-buscar">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Buscar Pedido</legend>
+
+            <div class="campo">
+                <label for="buscar">Pedido: </label>
+                <input id="buscar" type="text" placeholder="Escriba el nombre del cliente" name="buscar" required/>
+            </div>
+            
+        </fieldset>
+
+        <input class="btn"type="submit" value="Buscar"/>
+    </form>
+
+</main>
+
+{% endblock contenido %}

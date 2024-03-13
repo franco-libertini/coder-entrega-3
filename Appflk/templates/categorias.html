@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+
+{% block contenido %}
+<main>
+
+    <div class="titulo-tabla">
+        <h2>Categorias</h2>
+        <a href="{% url 'categoria_form' %}" class="btn">
+            <i class="fa fa-lg fa-plus" ></i>
+        </a>
+    </div>
+
+    <table>
+    
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre de Categoria</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in categorias %}
+            <tr>
+                <td>{{c.id}}</td>
+                <td>{{c.nombre}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    
+    </table>
+</main>
+{% endblock contenido %}

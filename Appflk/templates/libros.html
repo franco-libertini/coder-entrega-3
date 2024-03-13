@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+
+{% block contenido %}
+
+<main>
+
+    <div class="titulo-tabla">
+        <h2>Libros</h2>
+        <a href="{% url 'libro_form' %}" class="btn">
+            <i class="fa fa-lg fa-plus" ></i>
+        </a>
+    </div>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titulo</th>
+                <th>Autor</th>
+                <th>Categorias</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Disponible</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for l in libros %}
+            <tr>
+                <td>{{l.id}}</td>
+                <td>{{l.titulo}}</td>
+                <td>{{l.autor}}</td>
+                <td>
+                    {% for categoria in l.categorias.all %}
+                        {{ categoria.nombre }}{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </td>
+                <td>S/.{{l.precio}}</td>
+                <td>{{l.stock}}</td>
+                <td>{% if l.disponible %}✔{% else %}❌{% endif %}</td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+</main>
+
+{% endblock contenido %}

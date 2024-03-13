@@ -1,0 +1,65 @@
+{% extends 'index.html' %}
+
+{% block contenido %}
+<main class="contenedor">
+    <div class="contenedor-retornar">
+        <a href="{% url 'libros' %}" class="btn">
+            <i class="fa-solid fa-left-long"></i>
+        </a>
+    </div>
+    <form action="{% url 'libro_form' %}" method="post" class="formulario">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Registra Libro</legend>
+
+            <div class="campo">
+                <label for="titulo">Titulo: </label>
+                <input id="titulo" type="text" placeholder="Titulo del libro" name="titulo" required/>
+            </div>
+
+            <div class="campo">
+                <label for="autor">Autor: </label>
+                <select id="autor" name="autor" required>
+                    <option value="">--SELECCIONE--</option>
+                    {% for a in autores %}
+                    <option value="{{a.id}}">{{a.nombre}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="descripcion">Descripcion: </label>
+                <textarea id="descripcion" rows="10" cols="10" name="descripcion" required></textarea>
+            </div>
+
+            <div class="campo">
+                <label for="categorias">Categorias: </label>
+                <select id="categorias" name="categorias" multiple required>
+                    <option value="">--SELECCIONE 1 O MAS CATEGORIAS--</option>
+                    {% for c in categorias  %}
+                    <option value="{{c.id}}">{{c.nombre}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="precio">Precio: </label>
+                <input type="number" id="precio" name="precio" min="0" max="9999.99" step="0.01" required/>
+            </div>
+
+            <div class="campo">
+                <label for="stock">Stock: </label>
+                <input type="number" id="stock" name="stock" min="0" required/>
+            </div>
+
+            <div class="campo">
+                <label for="disponible">Disponible: </label>
+                <input type="checkbox" id="disponible" name="disponible" value="true" />
+            </div>
+            
+        </fieldset>
+
+        <input class="btn"type="submit" value="Registrar"/>
+    </form>
+</main>
+{% endblock contenido %}

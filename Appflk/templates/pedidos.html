@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+
+{% block contenido %}
+<main class="contenedor">
+
+    <div class="titulo-tabla">
+        <h2>Pedidos</h2>
+        <a href="{% url 'pedido_form' %}" class="btn">
+            <i class="fa fa-lg fa-plus" ></i>
+        </a>
+    </div>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libro</th>
+                <th>Cliente</th>
+                <th>Cantidad</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in pedidos %}
+            <tr>
+                <td>{{p.id}}</td>
+                <td>{{p.libro}}</td>
+                <td>{{p.cliente}}</td>
+                <td>{{p.cantidad}}</td>
+                <td>{{p.fecha_creacion}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+</main>
+{% endblock contenido %}

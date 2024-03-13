@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+
+{% block contenido %}
+<main class="contenedor">
+    <div class="contenedor-retornar">
+        <a href="{% url 'pedidos' %}" class="btn">
+            <i class="fa-solid fa-left-long"></i>
+        </a>
+    </div>
+    <form action="{% url 'pedido_form' %}" method="post" class="formulario">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Registra Pedido</legend>
+
+            <div class="campo">
+                <label for="cliente">Cliente: </label>
+                <select id="cliente" name="cliente" required>
+                    <option value="">--Seleccione--</option>
+                    {% for c in clientes %}
+                    <option value="{{c.id}}">{{c.nombre}} {{c.apellido}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="campo">
+                <label for="libro">Libro: </label>
+                <select id="libro" name="libro" required>
+                    <option value="">--Seleccione--</option>
+                    {% for l in libros %}
+                    <option value="{{l.id}}">{{l.titulo}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="cantidad">Cantidad: </label>
+                <input id="cantidad" type="number" name="cantidad" min="1" required/>
+            </div>
+            
+        </fieldset>
+
+        <input class="btn"type="submit" value="Registrar"/>
+    </form>
+</main>
+{% endblock contenido %}
